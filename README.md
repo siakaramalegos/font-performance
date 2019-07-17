@@ -30,7 +30,7 @@ To get the most out of this talk, you should have a working understanding of Jav
 
 ## Slides and Controls
 
-The slides are deployed [here](https://siakaramalegos.github.io/performance-long/#/). To advance the slides, use `n` for next and `p` for previous. The right arrow jumps to the next section (and left for previous section). Up and down to advance through slides within a section.
+The slides are deployed [here](http://sia.codes/web-performance-long/#/). To advance the slides, use `n` for next and `p` for previous. The right arrow jumps to the next section (and left for previous section). Up and down to advance through slides within a section.
 
 ## Resources
 
