@@ -18,7 +18,7 @@ highlightTheme: github
 
 ---
 
-## [bit.ly/perf-long](http://bit.ly/perf-long)
+## [bit.ly/perf-90](http://bit.ly/perf-90)
 
 ---
 
@@ -62,6 +62,24 @@ highlightTheme: github
 <small>https://developers.google.com/web/updates/2018/07/search-ads-speed</small>
 
 Note: In 2016, Doubleclick by Google released a report saying that 53% of mobile sites are abandoned if pages take longer than 3 seconds to load.
+
+---
+
+<img src="./images/shame.png" alt="Message on slower sites to users saying 'Usually loads slow'" height="500px" style="border:none;box-shadow:none;">
+
+<small>[Moving towards a faster web](https://blog.chromium.org/2019/11/moving-towards-faster-web.html)</small>
+
+---
+
+The internet consumes 416.2 TWh of electricity per year. A 10% savings would be equivalent to:
+
+- 6.2 million fewer cars on the road 🚗 <!-- .element: class="fragment fade-in-then-semi-out" -->
+- 32 billion less pounds of coal being burned 💨 <!-- .element: class="fragment fade-in-then-semi-out" -->
+- 486 million tree seedlings grown for 10 years 🌳 <!-- .element: class="fragment fade-in-then-semi-out" -->
+
+<small>[How is your website impacting the planet?](https://www.websitecarbon.com/), [Greenhouse Gas Equivalencies Calculator](https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator)</small>
+
+Note: Most of the energy is consumed by the network and data center, not users' devices.
 
 ---
 
@@ -245,37 +263,64 @@ Note: Lighthouse audits also does this better now, but I still like this quick t
 
 ---
 
+## MOAR Tools
+
+- Dev Tools Coverage analyzer
+- [Performance Budget Calculator](https://perf-budget-calculator.firebaseapp.com/)
+- [Bundlephobia](https://bundlephobia.com/)
+- [Cloudinary Website Speed Test Image Analysis Tool](https://webspeedtest.cloudinary.com/)
+
+---
+
 # 📈 Metrics 📈
 
 ---
 
-## ~~Load time~~ Speed Index
-
-How quickly the page contents are visually populated
-
-- Expressed in milliseconds
-- Dependent on size of the view port
-- Measured in Lighthouse and WebPageTest
-
-> Note: It is particularly useful for comparing experiences of pages against each other (before/after optimizing, my site vs competitor, etc) and should be used in combination with the other metrics (load time, start render, etc) to better understand a site's performance. Historically we have relied on milestone timings to determine how fast or slow web pages were.  The most common of these is the time until the browser reaches the load event for the main document (onload).  The load event is easy to measure both in a lab environment and in the real world.  Unfortunately, it isn't a very good indicator of the actual end-user experience.  As pages grow and load a lot of content that is not visible to the user or off the screen (below the fold) the time to reach the load event is extended even if the user-visible content has long-since rendered. Lighthouse may use a node module called Speedline for this.
-
-<small>https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index</small>
+> When optimizing for speed, <br>**user experience** should always <br>be your primary metric.
 
 ---
 
-## Time to Interactive
+## User experience
 
-How long it takes a page to become fully interactive
+1. When can I see the page? <!-- .element: class="fragment fade-in-then-semi-out" -->
+2. When can I interact with it? <!-- .element: class="fragment fade-in-then-semi-out" -->
+3. Is it smooth? <!-- .element: class="fragment fade-in-then-semi-out" -->
+
+---
+
+## When can I see the page?
+
+- Speed index measures how quickly the page contents are visually populated, but it's not simple<!-- .element: class="fragment fade-in-then-semi-out" -->
+- Largest contentful paint measures when the largest image or text paint in the viewport occurs<!-- .element: class="fragment fade-in" -->
+  - Elements removed from the DOM are invalidated (splash screens)<!-- .element: class="fragment fade-in" -->
+  - Will have a larger weight in Lighthouse<!-- .element: class="fragment fade-in" -->
+
+<small>[Largest Contentful Paint (LCP)](https://web.dev/lcp/), [Speed Index](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index)</small>
+
+---
+
+## When can I interact with the page?
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Lx1cYJAVnzA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 <small>End to End Apps with Polymer by Kevin Schaaf, Polymer Summit 2017</small>
 
-Note: the point at which layout has stabilized, key webfonts are visible, and the main thread is available enough to handle user input within 50ms.
+---
+
+## When can I interact with the page?
+
+- Time to Interactive (TTI) measures how long it takes a page to become fully interactive<!-- .element: class="fragment fade-in-then-semi-out" -->
+- Total blocking time (TBT) measures the time between First Contentful Paint (FCP) and TTI where the main thread was blocked for long enough to prevent input responsiveness.<!-- .element: class="fragment fade-in-then-semi-out" -->
+- TBT will have a larger weight in Lighthouse.<!-- .element: class="fragment fade-in-then-semi-out" -->
+- Large blocks of scripting on the main thread makes both worse.<!-- .element: class="fragment fade-in-then-semi-out" -->
+
+<small>[How does TBT relate to TTI?](https://web.dev/tbt/#how-does-tbt-relate-to-tti)</small>
+
+Note: the point at which layout has stabilized, key webfonts are visible, and the main thread is available enough to handle user input within 50ms. The main thread is considered "blocked" any time there's a Long Task—a task that runs on the main thread for more than 50 milliseconds (ms).
 
 ---
 
-## Frame Rate
+## Is it smooth? Frame Rate...
 
 <img src="./images/frames_per_second.gif" alt="Frames per second comparison for visual jank" >
 
@@ -303,6 +348,7 @@ Note: R:Complete a transition initiated by user input within 100ms. A: Have 16ms
 - **Performance**: script and other execution costs (flame chart)
 - **Network**: download time (waterfall)
 - **Audits**: scores performance, PWAs, accessibility, etc (Lighthouse)
+- **Coverage**: shows used vs. unused bytes includes in the load
 
 Note: Lots of other cool tools exist like local overrides, paint layers, etc.
 
@@ -315,6 +361,8 @@ Note: You can use incognito mode, but if you want to be able to test caching, yo
 ---
 
 # Set up DevTools #LikeABoss
+
+<img class="nooutline" width="150px" src="./images/tool-devtools.svg" alt="Chrome DevTools"/>
 
 [bit.ly/boss-devtools](http://bit.ly/boss-devtools)
 
@@ -337,6 +385,8 @@ Note: Who is brave enough to admit they don't really know what that means?
   </ul>
 </section>
 
+Note: http://www.grandrapidsohio.com/, https://www.clioandcalliope.com/
+
 ---
 
 ## HTTP/1.1
@@ -356,6 +406,10 @@ Note: Starts downloading assets as TCP connections become available
 <small>https://deliciousbrains.com/performance-best-practices-http2/</small>
 
 Note: In addition, header compression. HTTP2 server push has not lived up to the promise, but it's still a new area. For the most part, need to use https.
+
+---
+
+[ishttp2fastyet.com/](http://ishttp2fastyet.com/)
 
 ---
 
@@ -385,13 +439,9 @@ Note: In addition, header compression. HTTP2 server push has not lived up to the
 
 ---
 
-## Loading Google Fonts from CSS
+<img class="nooutline" src="./images/fonts-css.png" alt="Google fonts load waterfall showing wasted time from loading from css">
 
-```css
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
-```
-
-[WebPageTest waterfall](http://webpagetest.org/customWaterfall.php?test=190406_EP_2dc139e2f92f617a2ec5f39624d6c8ca&run=2&width=930)
+<small>[WebPageTest waterfall](http://webpagetest.org/customWaterfall.php?test=190406_EP_2dc139e2f92f617a2ec5f39624d6c8ca&run=2&width=930)</small>
 
 Note: pause here and ask what else seems wasteful - calling from css and connection time to 2nd domain
 
@@ -403,7 +453,9 @@ Note: pause here and ask what else seems wasteful - calling from css and connect
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
 ```
 
-<img src="./images/webfonts_css.png" alt="Google fonts load waterfall showing wasted time from loading from css">
+<img class="nooutline" src="./images/webfonts_css.png" alt="Google fonts load waterfall showing wasted time from loading from css">
+
+<small>[WebPageTest waterfall](http://webpagetest.org/customWaterfall.php?test=190406_EP_2dc139e2f92f617a2ec5f39624d6c8ca&run=2&width=930)</small>
 
 Note: pause here and ask what else seems wasteful - the connection time to fonts.gstatic.com
 
@@ -415,8 +467,19 @@ Note: pause here and ask what else seems wasteful - the connection time to fonts
 <link href="https://fonts.googleapis.com/css?family=Muli:400"
       rel="stylesheet">
 ```
-<!-- TODO: animate the image to show circle on click and slow bc no preconnect -->
-<img src="./images/webfonts_before.png" alt="Google fonts load waterfall showing wasted time">
+
+<img class="nooutline" src="./images/fonts-html.png" alt="Google fonts load waterfall showing wasted time from loading from css">
+
+---
+
+## Loading Google Fonts from HTML
+
+```html
+<link href="https://fonts.googleapis.com/css?family=Muli:400"
+      rel="stylesheet">
+```
+
+<img class="nooutline" src="./images/fonts-html-annotated.png" alt="Google fonts load waterfall showing wasted time from loading from extra connection time">
 
 ---
 
@@ -436,7 +499,7 @@ Note: dns-prefetch only does the dns part of the prefetch, but on the plus side,
       rel="stylesheet">
 ```
 
-<img src="./images/webfonts_preconnect.png" alt="Google fonts load waterfall showing preconnect">
+<img class="nooutline" src="./images/preconnect.png" alt="Google fonts load waterfall showing preconnect">
 
 ---
 
@@ -450,7 +513,9 @@ Note: dns-prefetch only does the dns part of the prefetch, but on the plus side,
   href="./fonts/muli-v12-latin-700.woff2" crossorigin>
 ```
 
-[WebPageTest waterfall](http://webpagetest.org/customWaterfall.php?test=190406_S0_0a529e9ce6086cbea8e3aadc942ddbf6&run=2&width=930)
+<img class="nooutline" src="./images/fonts-local.png" alt="Google fonts load waterfall showing local font waiting to load until after CSS">
+
+<small>[WebPageTest waterfall](http://webpagetest.org/customWaterfall.php?test=190406_S0_0a529e9ce6086cbea8e3aadc942ddbf6&run=2&width=930)</small>
 
 ---
 
@@ -464,7 +529,7 @@ Note: dns-prefetch only does the dns part of the prefetch, but on the plus side,
   href="./fonts/muli-v12-latin-700.woff2" crossorigin>
 ```
 
-<img src="./images/no-preload.png" alt="Google fonts load waterfall showing local font waiting to load until after CSS">
+<img class="nooutline" src="./images/no-preload.png" alt="Google fonts load waterfall showing local font waiting to load until after CSS">
 
 ---
 
@@ -480,9 +545,15 @@ Note: dns-prefetch only does the dns part of the prefetch, but on the plus side,
 
 <img src="./images/font_preload.png" alt="Self-hosted waterfall showing preload">
 
-<small>Note that `preload` loads a resource whether used or not. Only preload resources that are needed on a particular page. Don't self-host popular webfonts like Open Sans or Roboto (sabotages caching).</small>
+<small>Note that `preload` loads a resource whether used or not. Only preload resources that are needed on a particular page. ~~Don't self-host popular webfonts like Open Sans or Roboto (sabotages caching)~~.</small>
 
 Note: `rel="preload"` tells the browser to declaratively fetch the resource but not “execute” it (our CSS will queue usage). `as="font"` tells the browser what it will be downloading so that it can set an appropriate priority. Without it, the browser would set a default low priority. `type="font/woff2` tells the browser the file type so that it only downloads the resource if it supports that file type. `crossorigin` is required because fonts are fetched using anonymous mode CORS.
+
+---
+
+[Shared Cache is Going Away](https://www.jefftk.com/p/shared-cache-is-going-away)
+
+<small>[Chrome](https://www.chromestatus.com/feature/5730772021411840), [Firefox](https://bugzilla.mozilla.org/show_bug.cgi?id=1536058), [Safari](https://bugs.webkit.org/show_bug.cgi?id=110269)</small>
 
 ---
 
@@ -526,13 +597,21 @@ Note: PRPL pattern - push, render, pre-cache, lazy-load
 
 ---
 
+## More resources mentioned
+
+- [Making Google Fonts Faster⚡](https://sia.codes/posts/making-google-fonts-faster/) - includes how do download and host locally
+- [Google Analytics + caniuse = *MAGIC*](https://sia.codes/posts/google-analytics-caniuse-magic/) - how to import your Google Analytics data into caniuse
+- [subfont](https://github.com/Munter/subfont)
+
+---
+
 # Optimized, Responsive <br>📸 Images 📸
 
 ---
 
-Images account for 39-43% of the bytes on average needed to load a webpage.
+Images account for 50% of the bytes <br>on average needed to load a webpage.
 
-<small>[httparchive.org](https://httparchive.org), September 2018</small>
+<small>[httparchive.org](https://httparchive.org), November 2019</small>
 
 ---
 
@@ -592,11 +671,19 @@ Note: Raster file formats are really just different compression methods. **SVG**
 
 ---
 
+## Demystifying Resolution
+
+**DPR** = device pixel ratio
+
+**In layman's terms**:<br> On a 2x screen, a displayed image width of 100px needs a 200px file/natural width image to look good.
+
+---
+
 ## `srcset`
 
-- Defines a set of images and the natural size of each image
-- Always include a **base src** attribute for older browsers.
-- The browser chooses the best image to download based on assumed display width of `100vw` and the user's screen resolution.
+- Communicates a set of images and the natural size of each image
+- Always include a **base src** attribute for older browsers
+- Browser assumes a display width of `100vw`
 
 **`srcset` files are candidates, not commands.**
 
@@ -614,10 +701,9 @@ Note: `srcset` is an attribute for `<img>`. Width is in pixels even though is sa
 
 ## `sizes`
 
-- Defines a set of media conditions and sizes intended for display of the image
-- Leave out the media condition for the last one (serves as default for no matches)
+- Communicates display width for a set of media conditions
 - **Order matters! First match is used.**
-- Browser chooses the best image to load based on matching display width and user's screen resolution.
+- Leave out the media condition for the last one (default for no match)
 - Add analogous CSS
 
 ```html
@@ -632,14 +718,6 @@ Note: `srcset` is an attribute for `<img>`. Width is in pixels even though is sa
 ```
 
 Note: Format is [media condition][space][display width]. Once again, these are candidates, not commands. We are letting the browser choose which file to use ultimately.
-
----
-
-## Demystifying Resolution
-
-**DPR** = device pixel ratio
-
-**In layman's terms**:<br> On a 2x screen, a displayed image width of 100px needs a 200px file/natural width image to look good.
 
 ---
 
@@ -712,9 +790,11 @@ Note: (1) In this `picture` tag, we have 2 sources and an img. Older browsers si
 
 Nope. Some (not all) tooling options:
 
-- Simple `<img>` and server selects best image to respond with
+- Simple `<img>` and server selects best image to serve
 - Paid cloud-based services like [Cloudinary](https://cloudinary.com)
 - Build tools like various webpack loaders
+
+<small>[Image Analysis Tool by Cloudinary](https://webspeedtest.cloudinary.com/)</small>
 
 Note: (1) Many people have their server hijack the request and serve the best image to minimize markup. Could also use a serverless function. (2) Cost money. (3) So many options - both create your srcset code and process the images
 
@@ -722,7 +802,9 @@ Note: (1) Many people have their server hijack the request and serve the best im
 
 ## CSS Background Image Performance
 
-- Use media queries to select the best width image for a chosen screen size and DPR (use postcss/autoprefixer to get prefixes):
+- Use media queries to select the best width image for a chosen screen size and DPR
+- Use postcss/autoprefixer to get prefixes
+
   ```css
   @media only screen and (min-width: 320px) {
     /* small screen, DPR = 1 */ }
@@ -731,17 +813,37 @@ Note: (1) Many people have their server hijack the request and serve the best im
     only screen and (min-resolution: 2dppx) and (min-width: 320px),{
     /* small screen, DPR = 2 */ }
   ```
-- Don't use `display: none;` as a perf strategy. Some browsers will still load hidden images.
 
 ---
 
-## I can't wait for the future
+# `display: none;`
+# not a perf strategy.
 
-<small>Native lazy-loading for `<img>` and `<iframe>` hopefully in Chrome ~75</small>
+Note: Some browsers will still load hidden images.
 
-<img src="./images/native_lazy.png_large" alt="<img loading=lazy> examples" class="nooutline" width="60%">
+---
+
+## ⚡🦄🌈⚡ Native lazy-loading ⚡🦄🌈⚡
+
+```html
+<!-- Lazy-load offscreen image when user scrolls near -->
+<img src="./hotlanta.jpg" loading="lazy" alt="...">
+
+<!-- Load an image immediately -->
+<img src="./hotlanta.jpg" loading="eager" alt="...">
+```
 
 <small>[addyosmani.com/blog/lazy-loading/](https://addyosmani.com/blog/lazy-loading/)</small>
+
+---
+
+# ⚡🦄🐈🌈🐼🍕🎂🍾🎉🐶🦄🐈🌈🐼🍕🎂🍾🎉🐶⚡🐈🌈🐼🍕🎂🍾🎉🐶⚡🦄🌈🐼🍕🎂🍾🎉🐶⚡🦄🐈
+
+---
+
+# 😭😭😭😭😭😭
+
+<img src="./images/caniuse-loading.png" alt="Can I Use shows 60.9% compatibility with loading attr" width="80%">
 
 ---
 
@@ -757,10 +859,18 @@ In the meantime, use a tool like [lazysizes](https://github.com/aFarkas/lazysize
 - Use newer, improved formats like webp. <!-- .element: class="fragment fade-in-then-semi-out" -->
 - Lazy loading with a tool like lazysizes <!-- .element: class="fragment fade-in-then-semi-out" -->
 
+<br>
+<br>
 <small>
-  Check out [Responsive images](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images) on MDN &amp; [Image Performance](https://abookapart.com/products/image-performance) by Mat Marquis.
-  <br>[Sharp](https://www.npmjs.com/package/sharp) &amp; [Imagemagick](https://www.imagemagick.org/script/index.php) are great for resizing images. Examples at [Serve Responsive Images](https://web.dev/fast/serve-responsive-images). Use `cwebp` for creating webp files ([docs](https://developers.google.com/speed/webp/docs/cwebp)).
+  Check out <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images">Responsive images</a> on MDN &amp; <a href="https://abookapart.com/products/image-performance">Image Performance</a> by Mat Marquis.
+  <br><a href="https://www.npmjs.com/package/sharp">Sharp</a> &amp; <a href="https://www.imagemagick.org/script/index.php">Imagemagick</a> are great for resizing images. Examples at <a href="https://web.dev/fast/serve-responsive-images">Serve Responsive Images</a>. Use cwebp for creating webp files (<a href="https://developers.google.com/speed/webp/docs/cwebp">docs</a>).
 </small>
+
+---
+
+<img class="nooutline" src="./images/image-cli-tweet.png" alt="Are you a developer like me that does not have fancy design tools? You can still process images with CLI tools! Here's a reference I use whenever I want to convert or resize images, using ImageMagick, cwebp, and more." height="500px">
+
+<small>https://twitter.com/TheGreenGreek/status/1201494377522225153, https://github.com/siakaramalegos/images-on-the-command-line</small>
 
 ---
 

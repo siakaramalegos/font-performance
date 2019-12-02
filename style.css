@@ -39,7 +39,7 @@ body {
 .reveal::after {
   background-color: #fff;
   color: #00A6BF;
-  content: '@thegreengreek';
+  content: '@TheGreenGreek';
   position: absolute;
   bottom: 0;
   font-size: 0.8em;
