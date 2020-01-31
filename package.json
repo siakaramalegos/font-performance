@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "reveal-md performance.md --watch",
-    "build": "rm -rf build && reveal-md performance.md --highlight-theme github --static build --static-dirs=images && mkdir build/_assets && cp style.css build/_assets && cp -a fonts/. build/_assets/fonts/ && touch build/.nojekyll",
+    "start": "reveal-md index.md --watch",
+    "build": "rm -rf build && reveal-md index.md --highlight-theme github --static build --static-dirs=images && mkdir build/_assets && cp style.css build/_assets && cp -a fonts/. build/_assets/fonts/ && touch build/.nojekyll",
     "deploy": "gh-pages -d build --dotfiles"
   },
   "keywords": [],
