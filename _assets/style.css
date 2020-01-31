@@ -22,7 +22,7 @@
 }
 
 section.has-dark-background, section.has-dark-background h1, section.has-dark-background h2, section.has-dark-background h3, section.has-dark-background h4, section.has-dark-background h5, section.has-dark-background h6{
-  color: #fff; }
+  color: #eae3dc; }
 
 /*********************************************
  * GLOBAL STYLES
@@ -38,7 +38,7 @@ body {
   color: #222; }
 .reveal::after {
   background-color: #fff;
-  color: #00A6BF;
+  color: #6E5546;
   content: '@TheGreenGreek';
   position: absolute;
   bottom: 0;
@@ -86,7 +86,7 @@ body {
 .reveal h6 {
   margin: 0 0 20px 0;
   /* color: #448BC7; */
-  color: #00A6BF;
+  color: #6E5546;
   font-family: "Oswald", Helvetica, sans-serif;
   font-weight: 700;
   line-height: 1.2;
@@ -95,7 +95,7 @@ body {
   word-wrap: break-word; }
 .reveal h1.dark-background,
 .reveal h2.dark-background {
-  color: #fff;
+  color: #eae3dc;
 }
 .reveal a.dark-background {
   color: #222;
@@ -191,7 +191,7 @@ body {
   width: 70%;
   margin: 20px auto;
   padding-left: 20px;
-  border-left: 3px solid #00A6BF;
+  border-left: 3px solid #6E5546;
   text-align: left;
   font-style: italic;
   background: rgba(255, 255, 255, 0.05); }
@@ -268,7 +268,7 @@ body {
  *********************************************/
 .reveal a {
   /* color: #2a76dd; */
-  color: #00A6BF;
+  color: #6E5546;
   text-decoration: none;
   -webkit-transition: color .15s ease;
   -moz-transition: color .15s ease;
@@ -276,7 +276,7 @@ body {
 
 .reveal a:hover {
   /* color: #6ca0e8; */
-  color: #1AC0D9;
+  color: #8c6d5a;
   text-shadow: none;
   border: none; }
 
@@ -305,7 +305,7 @@ body {
 .reveal a:hover img {
   background: rgba(255, 255, 255, 0.2);
   /* border-color: #2a76dd; */
-  border-color: #00A6BF;
+  border-color: #6E5546;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }
 
 /*********************************************
@@ -313,7 +313,7 @@ body {
  *********************************************/
 .reveal .controls {
   /* color: #2a76dd;  */
-  color: #00A6BF;
+  color: #6E5546;
 }
 
 /*********************************************
@@ -322,7 +322,7 @@ body {
 .reveal .progress {
   background: rgba(0, 0, 0, 0.2);
   /* color: #2a76dd;  */
-  color: #00A6BF;
+  color: #6E5546;
 }
 
 .reveal .progress span {
