@@ -20,8 +20,7 @@ highlightTheme: github
 <img src="./images/sia.gif" alt="Sia at Mardi Gras" height="450px" style="border:none;">
 
 ---
-<!-- TODO: change -->
-## [bit.ly/perf-90](http://bit.ly/perf-90)
+## [bit.ly/font-perf](http://bit.ly/font-perf)
 
 ---
 
@@ -316,7 +315,6 @@ Note: add the `font-display` property to the `@font-face` declaration
 
 ---
 
-
 ## Font Style-Matcher by Monica Dinculescu
 
 [meowni.ca/font-style-matcher/](https://meowni.ca/font-style-matcher/)
@@ -337,28 +335,14 @@ Note: add the `font-display` property to the `@font-face` declaration
 
 ---
 
-<!-- .slide: data-background="./images/baggage_claim.jpg" -->
-<h1 class="dark-background">
-  <span class="highlighter">Houston's Baggage Claim Complaints</span>
-</h1>
-
-<small>http://www.nytimes.com/2012/08/19/opinion/sunday/why-waiting-in-line-is-torture.html</small>
-
-Note: “Often the psychology of queuing is more important than the statistics of the wait itself,” notes the M.I.T. operations researcher Richard Larson. Occupied time (walking to baggage claim) feels shorter than unoccupied time (standing at the carousel).
-
----
-
-> Are you better off making the site load faster or ensuring that users complete their tasks?
-
-<small>Christine Perfetti, [The Truth About Download Time](https://articles.uie.com/download_time/) 2006</small>
-
----
-
 <!-- .slide: data-background="./images/types.jpg" -->
 
 <div style="background-color:rgba(255,255,255,0.75);padding:20px;">
 
 # Thanks!
+
+Slides & resources for this talk at [bit.ly/font-perf](http://bit.ly/font-perf)
+
 Writing, resources, and more at [sia.codes](https://sia.codes/)
 
 </div>
