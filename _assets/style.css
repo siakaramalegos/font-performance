@@ -270,16 +270,12 @@ body {
   /* color: #2a76dd; */
   color: #6E5546;
   text-decoration: none;
+  border-bottom: 2px solid #d1c2b7;
+  box-shadow: #d1c2b7 0 -2px 0 0 inset;
   -webkit-transition: color .15s ease;
   -moz-transition: color .15s ease;
   transition: color .15s ease; }
-
-.reveal a:hover {
-  /* color: #6ca0e8; */
-  color: #8c6d5a;
-  text-shadow: none;
-  border: none; }
-
+.reveal a:hover { background-color: #d1c2b7; }
 .reveal .roll span:after {
   color: #fff;
   background: #1a53a1; }
@@ -367,7 +363,7 @@ li.arrow:before {
   width: 2em;
 }
 .highlighter {
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.7);
 }
 #contents-table table, #contents-table tr, #contents-table td {
   border: 0;
@@ -389,4 +385,14 @@ table.fixed-two-column td {
 #dev-tool {
   display: inline-block;
   margin: 20px;
+}
+
+/* Just these slides */
+#spinner {
+  animation: spin 2s linear infinite;
+  opacity: 0.7;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
